@@ -1,5 +1,6 @@
 <?php
 
+// Include database configuration
 include '../config/database.php';
 
 // Get form data from POST request
@@ -27,12 +28,10 @@ if($result) {
         VALUES ('$firstname', '$lastname', '$email', '$hashed_password')";
 
         if(pg_query($conn, $sql)) {
-
+            //echo "User has been created successfully";
             echo "<script>alert('User created successfully. Go to Sign In');</script>";
-            header("Refresh: 0; url=http://localhost/pet-store2/src/login.html");
-        } else {
-            echo "Error creating user: " . pg_last_error($conn);
-        }
+            header("Refresh: 0; url=../login.html");
+        } 
     }
 } else {
     echo "Error validating email";

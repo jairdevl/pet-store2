@@ -69,3 +69,8 @@ Este sistema permite administrar productos, categorías, clientes y ventas en un
 
 ```bash
 git clone https://github.com/tu-usuario/pet-store.git
+
+### Requirements
+- Login with Google, facebook
+- Implement forget password
+- Two-Factor authentication(2FA)
