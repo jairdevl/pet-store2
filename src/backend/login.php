@@ -30,19 +30,19 @@ $sql = "SELECT id, firstname, lastname, email, password FROM users WHERE email =
 $result = pg_query_params($conn, $sql, [$email]);
 
 if ($result && $row = pg_fetch_assoc($result)) {
-    // Comparar directamente la contraseña (NO SEGURO)
+    // Compare passwords directly (NOT SECURE)
     if ($password === $row['password']) {
-        session_regenerate_id(true); // Security: prevent fixation
+        session_regenerate_id(true); // Security: prevent session fixation
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['firstname'] = $row['firstname'];
         $_SESSION['lastname'] = $row['lastname'];
         $_SESSION['email'] = $row['email'];
-        header('Location: ../');
+        header('Location: /pet-store2/src/index.php');  // Fixed this line
         exit;
     }
 }
 
-// Si llega aquí, las credenciales son inválidas
+// If we get here, the credentials are invalid
 echo "<script>alert('Invalid email or password');</script>";
 header("Refresh: 0; url=../login.html");
 exit;

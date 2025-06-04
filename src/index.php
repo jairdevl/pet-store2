@@ -1,8 +1,10 @@
 <?php
 session_start();
+// Check if user is not logged in
 if(!isset($_SESSION['user_id'])) {
-    header('Location: ../login.html');
-    exit;
+    // Redirect to login
+    header('Location: login.html');
+    exit; // Add this back
 } else {
     $username = $_SESSION['firstname'];
 }

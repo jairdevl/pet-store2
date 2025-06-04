@@ -28,6 +28,6 @@ $conn = pg_connect($data_connection);
 if (!$conn) {
     echo "Connection failed: " . pg_last_error($conn);
 } else{
-    echo "Success!!!";
+    //echo "Success!!!";
 }
 ?>
